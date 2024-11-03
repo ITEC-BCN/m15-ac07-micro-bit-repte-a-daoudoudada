@@ -1,5 +1,3 @@
-let eleccionJugador = 0
-let eleccionMaquina = 0
 function determinarGanador () {
     if (eleccionJugador == eleccionMaquina) {
         basic.showLeds(`
@@ -30,28 +28,6 @@ input.onButtonPressed(Button.A, function () {
         `)
     determinarGanador()
 })
-input.onGesture(Gesture.Shake, function () {
-    eleccionMaquina = randint(1, 3)
-    if (eleccionMaquina == 1) {
-        basic.showLeds(`
-            . . . . .
-            . # # # .
-            . # # # .
-            . # # # .
-            . . . . .
-            `)
-    } else if (eleccionMaquina == 2) {
-        basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-    } else {
-        basic.showIcon(IconNames.Scissors)
-    }
-})
 input.onButtonPressed(Button.AB, function () {
     eleccionJugador = 3
     basic.showIcon(IconNames.Scissors)
@@ -68,3 +44,25 @@ input.onButtonPressed(Button.B, function () {
         `)
     determinarGanador()
 })
+let eleccionJugador = 0
+let eleccionMaquina = 0
+eleccionMaquina = randint(1, 3)
+if (eleccionMaquina == 1) {
+    basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # # # .
+        . # # # .
+        . . . . .
+        `)
+} else if (eleccionMaquina == 2) {
+    basic.showLeds(`
+        . # # # .
+        . # . # .
+        . # . # .
+        . # . # .
+        . # # # .
+        `)
+} else {
+    basic.showIcon(IconNames.Scissors)
+}
